@@ -1,0 +1,22 @@
+{
+    "name": "integer-net/dev-dashboard",
+    "description": "Magento 1 extension: Provides an alternative admin dashboard for developers",
+    "type": "magento-module",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Fabian Schmengler",
+            "email": "fs@integer-net.de"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "ecomdev/ecomdev_phpunit": "dev-dev"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://packages.firegento.com"
+        }
+    ]
+}
