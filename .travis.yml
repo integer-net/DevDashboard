@@ -20,7 +20,7 @@ matrix:
 #      env: MAGENTO_VERSION=magento-ce-1.9.0.1
 env:
 #  - MAGENTO_VERSION=magento-ce-1.9.2.4
-  - MAGENTO_VERSION=magento-ce-1.9.1.0
+  - MAGENTO_VERSION=magento-mirror-1.9.1.0
 #  - MAGENTO_VERSION=magento-ce-1.9.0.1
 #  - MAGENTO_VERSION=magento-ce-1.8.1.0
 #  - MAGENTO_VERSION=magento-ce-1.8.0.0
