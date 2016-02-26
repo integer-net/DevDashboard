@@ -1,0 +1,17 @@
+<?php
+/** @var $this IntegerNet_DevDashboard_Block_Info_System */
+?>
+<ul class="messages">
+    <li class="notice-msg">
+        <table>
+            <tr>
+                <th><?php echo $this->__('PHP Version')?></th>
+                <td><?php echo $this->escapeHtml($this->getPhpVersion()) ?></td>
+            </tr>
+            <tr>
+                <th><?php echo $this->__('XDebug enabled')?></th>
+                <td><?php echo $this->getXDebugEnabled() ? $this->__('Yes') : $this->__('No') ?></td>
+            </tr>
+        </table>
+    </li>
+</ul>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <dashboard>
+            <children>
+                <dev translate="title">
+                    <title>Developer Dashboard</title>
+                    <action>adminhtml/devdashboard/index</action>
+                </dev>
+            </children>
+        </dashboard>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <dashboard>
+                        <children>
+                            <dev translate="title">
+                                <title>Developer Dashboard</title>
+                                <sort_order>100</sort_order>
+                            </dev>
+                        </children>
+                    </dashboard>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

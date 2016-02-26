@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_devdashboard_index>
+        <reference name="content">
+            <block name="devdashboard" type="integernet_devdashboard/devdashboard">
+                <block name="devdashboard_left" type="core/text_list">
+                    <block type="integernet_devdashboard/info_system" name="devdashboard_info_system"/>
+                    <block type="integernet_devdashboard/cache" name="devdashboard_cache"/>
+                </block>
+                <block name="devdashboard_right" type="core/text_list">
+                    <block type="integernet_devdashboard/config_dev" name="devdashboard_config_dev"/>
+                </block>
+            </block>
+        </reference>
+    </adminhtml_devdashboard_index>
+</layout>

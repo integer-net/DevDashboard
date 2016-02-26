@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <IntegerNet_DevDashboard>
+            <active>true</active>
+            <codePool>community</codePool>
+        </IntegerNet_DevDashboard>
+    </modules>
+</config>

@@ -1,0 +1,18 @@
+<?php
+/** @var $this IntegerNet_DevDashboard_Block_Devdashboard */
+?>
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td><h3 class="head-dashboard"><?php echo $this->__('Developer Dashboard') ?></h3></td>
+        </tr>
+    </table>
+</div>
+<div class="dashboard-container">
+    <table cellspacing="25" width="100%">
+        <tr>
+            <td width="30%"><?php echo $this->getChildHtml('devdashboard_left') ?></td>
+            <td width="60%"><?php echo $this->getChildHtml('devdashboard_right') ?></td>
+        </tr>
+    </table>
+</div>

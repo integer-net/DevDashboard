@@ -1,0 +1,5 @@
+app/code/community/IntegerNet/DevDashboard
+app/design/adminhtml/default/default/layout/integernet_devdashboard.xml
+app/design/adminhtml/default/default/template/integernet_devdashboard
+app/etc/modules/IntegerNet_DevDashboard.xml
+app/locale/en_US/IntegerNet_DevDashboard.csv
