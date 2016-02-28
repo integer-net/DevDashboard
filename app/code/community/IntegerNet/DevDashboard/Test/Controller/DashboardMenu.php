@@ -9,7 +9,7 @@ class IntegerNet_DevDashboard_Test_Controller_DashboardMenu extends EcomDev_PHPU
 
     private function assertDasboardMenuItemVisible($visible = true)
     {
-        $expectedUrl = 'http://www.sandbox.local/index.php/admin/devdashboard/index/';
+        $expectedUrl = 'http://magento.local/index.php/admin/devdashboard/index/';
         $constraint = $this->matchesRegularExpression(
             '{href="'.$expectedUrl.'[^"]*"[^>]*>\s*<span>Developer Dashboard</span>}'
         );
