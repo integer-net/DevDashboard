@@ -9,6 +9,8 @@ Facts
 - [extension on GitHub](https://github.com/integer-net/DevDashboard)
 - [direct download link](https://github.com/integer-net/DevDashboard/archive/master.zip)
 
+[![Build Status](https://travis-ci.org/integer-net/DevDashboard.svg?branch=master)](https://travis-ci.org/integer-net/DevDashboard)
+
 Description
 -----------
 The extension adds a developer dashboard that you can choose as your start page for the admin panel. It contains the following widgets:
@@ -19,11 +21,11 @@ The extension adds a developer dashboard that you can choose as your start page 
 
 Requirements
 ------------
-- PHP >= 5.4.0
+- PHP >= 5.5 (might work on PHP 5.4 but as unsupported PHP version this is not tested. See: http://php.net/supported-versions.php)
 
 Compatibility
 -------------
-- Magento  1.9.x
+- Magento CE 1.7.0.2 - Magento CE 1.9.2.4
 
 Installation Instructions
 -------------------------
@@ -51,7 +53,7 @@ Any contribution is highly appreciated. The best way to contribute code is to op
 
 Developer
 ---------
-Fabian Schmengler, integer_net GmbH ([@fschmengler](https://twitter.com/fschmengler))
+Fabian Schmengler, integer\_net GmbH ([@fschmengler](https://twitter.com/fschmengler))
 
 License
 -------
@@ -59,5 +61,5 @@ License
 
 Copyright
 ---------
-(c) 2016 integer_net GmbH
+(c) 2016 integer\_net GmbH
 [http://www.integer-net.com](http://www.integer-net.com) ([@integer_net](https://twitter.com/integer_net))
