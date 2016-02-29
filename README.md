@@ -10,6 +10,8 @@ Facts
 - [direct download link](https://github.com/integer-net/DevDashboard/archive/master.zip)
 
 [![Build Status](https://travis-ci.org/integer-net/DevDashboard.svg?branch=master)](https://travis-ci.org/integer-net/DevDashboard)
+[![Code Climate](https://codeclimate.com/github/integer-net/DevDashboard/badges/gpa.svg)](https://codeclimate.com/github/integer-net/DevDashboard)
+[![Test Coverage](https://codeclimate.com/github/integer-net/DevDashboard/badges/coverage.svg)](https://codeclimate.com/github/integer-net/DevDashboard/coverage)
 
 Description
 -----------
