@@ -5,7 +5,7 @@ php:
   - 5.6
   - hhvm
 matrix:
-  allow_failures:
+  exclude:
     - php: 5.6
       env: MAGENTO_VERSION=magento-mirror-1.7.0.2
     - php: 5.6
