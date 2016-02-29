@@ -3,10 +3,10 @@ class IntegerNet_DevDashboard_Test_Controller_DashboardController extends EcomDe
 {
     private $route = 'adminhtml/devdashboard/index';
 
-    private function loadDashboard()
+    private function loadDashboard($params = [])
     {
         $this->adminSession();
-        $this->dispatch($this->route);
+        $this->dispatch($this->route, $params);
     }
 
     private function setConfig($path, $value)
@@ -46,7 +46,20 @@ class IntegerNet_DevDashboard_Test_Controller_DashboardController extends EcomDe
         $this->assertLayoutBlockRendered('devdashboard_cache');
         $this->assertLayoutBlockRendered('devdashboard_info_system');
         $this->assertLayoutBlockRendered('devdashboard_info_magento');
+
+        $this->assertLayoutBlockRendered('devdashboard_store_switcher');
         $this->assertLayoutBlockRendered('devdashboard_config_dev');
+
+    }
+
+    /**
+     * @singleton index/indexer
+     */
+    public function testStoreSwitcher()
+    {
+        $this->loadDashboard(['website' => 'base']);
+        $this->assertLayoutBlockRenderedContent('devdashboard_store_switcher',
+            $this->matchesRegularExpression('{<option [^>]*value="website_base"[^>]*selected="selected"}'));
     }
 
     /**

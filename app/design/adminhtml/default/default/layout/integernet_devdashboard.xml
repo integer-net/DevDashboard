@@ -9,6 +9,7 @@
                     <block type="integernet_devdashboard/cache" name="devdashboard_cache"/>
                 </block>
                 <block name="devdashboard_right" type="core/text_list">
+                    <block type="adminhtml/system_config_switcher" name="devdashboard_store_switcher" />
                     <block type="integernet_devdashboard/config_dev" name="devdashboard_config_dev"/>
                 </block>
             </block>
