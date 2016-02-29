@@ -1,0 +1,20 @@
+---
+engines:
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - php
+  fixme:
+    enabled: true
+  phpmd:
+    enabled: true
+    config:
+      file_extensions: "php"
+      rulesets: "unusedcode,codesize,naming,cleancode,design"
+  phpcodesniffer:
+    enabled: false
+ratings:
+  paths:
+  - "**.php"
+exclude_paths: []
