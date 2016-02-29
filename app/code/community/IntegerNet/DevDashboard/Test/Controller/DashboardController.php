@@ -9,11 +9,35 @@ class IntegerNet_DevDashboard_Test_Controller_DashboardController extends EcomDe
         $this->dispatch($this->route, $params);
     }
 
+    /**
+     * @param $type
+     * @param $optionsBefore
+     * @param $expectedOptions
+     * @param string|null $expectedCleanType
+     */
+    private function doToggleCacheAction($type, $optionsBefore, $expectedOptions, $expectedCleanType = null)
+    {
+        $this->adminSession();
+        $route = 'adminhtml/devdashboard/toggleCache';
+        $cacheMock = $this->mockCache(['saveOptions', 'cleanType']);
+        $cacheMock->expects($this->once())
+            ->method('saveOptions')
+            ->with($expectedOptions);
+        if ($expectedCleanType) {
+            $cacheMock->expects($this->once())
+                ->method('cleanType')
+                ->with($expectedCleanType);
+        }
+        $this->app()->setCacheOptions($optionsBefore);
+        $this->dispatch($route, ['type' => $type]);
+        $this->assertRequestRoute($route);
+        $this->assertRedirectTo($this->route);
+    }
+
     private function setConfig($path, $value)
     {
         $this->app()->getStore(Mage_Core_Model_App::ADMIN_STORE_ID)->setConfig($path, $value);
     }
-
 
     /**
      * @param string[] $methods
@@ -71,7 +95,6 @@ class IntegerNet_DevDashboard_Test_Controller_DashboardController extends EcomDe
         $this->loadDashboard();
         $this->assertLayoutBlockRenderedContent('devdashboard', $this->stringContains('modman'));
     }
-
     /**
      * @singleton adminhtml/session
      */
@@ -85,7 +108,6 @@ class IntegerNet_DevDashboard_Test_Controller_DashboardController extends EcomDe
         $this->assertEventDispatchedExactly('adminhtml_cache_flush_all', 1);
         $this->assertRedirectTo($this->route);
     }
-
     /**
      * @singleton adminhtml/session
      */
@@ -99,6 +121,54 @@ class IntegerNet_DevDashboard_Test_Controller_DashboardController extends EcomDe
         $this->assertEventDispatchedExactly('application_clean_cache', 1);
         $this->assertRedirectTo($this->route);
     }
+    /**
+     * @singleton adminhtml/session
+     */
+    public function testRefreshCacheAction()
+    {
+        $this->adminSession();
+        $type = 'translate';
+        $route = 'adminhtml/devdashboard/refreshCache';
+        $cacheMock = $this->mockCache(['cleanType']);
+        $cacheMock->expects($this->once())
+            ->method('cleanType')
+            ->with($type);
+        $this->dispatch($route, ['type' => $type]);
+        $this->assertRequestRoute($route);
+        $this->assertRedirectTo($this->route);
+        $this->assertEventDispatchedExactly('adminhtml_cache_refresh_type', 1);
+    }
+    /**
+     * @singleton adminhtml/session
+     */
+    public function testThatToggleCacheActionTurnsCacheOn()
+    {
+        $this->doToggleCacheAction('translate', [
+            'eav' => 0,
+            'layout' => 0,
+            'translate' => 0
+        ], [
+            'eav' => 0,
+            'layout' => 0,
+            'translate' => 1
+        ]);
+    }
+    /**
+     * @singleton adminhtml/session
+     */
+    public function testThatToggleCacheActionTurnsCacheOff()
+    {
+        $this->doToggleCacheAction('translate', [
+            'eav' => 1,
+            'layout' => 1,
+            'translate' => 1
+        ], [
+            'eav' => 1,
+            'layout' => 1,
+            'translate' => 0,
+        ], 'translate');
+    }
+
     /**
      * Assert that layout block rendered content is evaluated by constraint
      *
@@ -120,6 +190,7 @@ class IntegerNet_DevDashboard_Test_Controller_DashboardController extends EcomDe
             $message
         );
     }
+
     /**
      * Assert that layout block rendered content is not evaluated by constraint
      *
@@ -141,5 +212,4 @@ class IntegerNet_DevDashboard_Test_Controller_DashboardController extends EcomDe
             $message
         );
     }
-
 }

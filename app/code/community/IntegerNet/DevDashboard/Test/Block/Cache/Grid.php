@@ -19,13 +19,11 @@ class IntegerNet_DevDashboard_Test_Block_Cache_Grid extends IntegerNet_DevDashbo
     /**
      * @depends testBlock
      */
-    public function testThatGridIsReduced()
+    public function testChangedGrid()
     {
         $this->block->toHtml();
-        $actualColumns = $this->block->getColumns();
-        $this->assertArrayNotHasKey('tags', $actualColumns);
-        $this->assertArrayNotHasKey('description', $actualColumns);
-        $this->assertEmpty($this->block->getMassactionBlock()->getItems(), 'Mass action items');
+        $this->assertGridIsReduced();
+        $this->assertGridHasActionsColumn();
     }
 
     /**
@@ -34,6 +32,20 @@ class IntegerNet_DevDashboard_Test_Block_Cache_Grid extends IntegerNet_DevDashbo
     public function testModuleNameForTranslations()
     {
         $this->assertEquals('Mage_Adminhtml', $this->block->getModuleName(), 'Module name for translations');
+    }
+
+    private function assertGridIsReduced()
+    {
+        $actualColumns = $this->block->getColumns();
+        $this->assertArrayNotHasKey('tags', $actualColumns);
+        $this->assertArrayNotHasKey('description', $actualColumns);
+        $this->assertEmpty($this->block->getMassactionBlock()->getItems(), 'Mass action items');
+    }
+
+    private function assertGridHasActionsColumn()
+    {
+        $actualColumns = $this->block->getColumns();
+        $this->assertArrayHasKey('actions', $actualColumns);
     }
 
 }

@@ -15,11 +15,34 @@ class IntegerNet_DevDashboard_Block_Cache_Grid extends Mage_Adminhtml_Block_Cach
         parent::_prepareColumns();
         $this->removeColumn('tags');
         $this->removeColumn('description');
+        $this->addColumn('actions',
+            array(
+                'header'    =>  $this->__('Action'),
+                'width'     => '100',
+                'type'      => 'action',
+                'getter'    => 'getId',
+                'actions'   => array(
+                    array(
+                        'caption'   => $this->__('Refresh'),
+                        'url'       => array('base'=> '*/*/refreshCache'),
+                        'field'     => 'type'
+                    ),
+                    array(
+                        'caption'   => $this->__('Enable') . '/' . $this->__('Disable'),
+                        'url'       => array('base'=> '*/*/toggleCache'),
+                        'field'     => 'type'
+                    )
+                ),
+                'filter'    => false,
+                'sortable'  => false,
+                'is_system' => true,
+        ));
+
         return $this;
     }
     protected function _prepareMassaction()
     {
-
+        return;
     }
 
     public function getModuleName()
