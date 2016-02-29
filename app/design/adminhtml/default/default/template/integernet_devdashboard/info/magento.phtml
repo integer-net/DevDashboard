@@ -1,0 +1,13 @@
+<?php
+/** @var $this IntegerNet_DevDashboard_Block_Info_Magento */
+?>
+<ul class="messages">
+    <li class="notice-msg">
+        <table>
+            <tr>
+                <th><?php echo $this->__('MAGE_IS_DEVELOPER_MODE')?></th>
+                <td><?php echo $this->getDeveloperMode() ? $this->__('On') : $this->__('Off') ?></td>
+            </tr>
+        </table>
+    </li>
+</ul>

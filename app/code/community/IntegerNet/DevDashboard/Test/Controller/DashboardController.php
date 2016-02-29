@@ -45,6 +45,7 @@ class IntegerNet_DevDashboard_Test_Controller_DashboardController extends EcomDe
 
         $this->assertLayoutBlockRendered('devdashboard_cache');
         $this->assertLayoutBlockRendered('devdashboard_info_system');
+        $this->assertLayoutBlockRendered('devdashboard_info_magento');
         $this->assertLayoutBlockRendered('devdashboard_config_dev');
     }
 
