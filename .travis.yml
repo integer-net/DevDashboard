@@ -23,3 +23,8 @@ env:
   - MAGENTO_VERSION=magento-mirror-1.7.0.2
 script:
   - curl -sSL https://raw.githubusercontent.com/schmengler/MageTestStand/master/setup.sh | bash
+addons:
+  code_climate:
+    repo_token: da644f40c75cae9192de730382be15615e71c17dbd95077699db8ab9c5da650d
+after_script:
+  - vendor/bin/test-reporter
