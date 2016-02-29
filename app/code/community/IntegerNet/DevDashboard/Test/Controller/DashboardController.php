@@ -14,6 +14,19 @@ class IntegerNet_DevDashboard_Test_Controller_DashboardController extends EcomDe
         $this->app()->getStore(Mage_Core_Model_App::ADMIN_STORE_ID)->setConfig($path, $value);
     }
 
+
+    /**
+     * @param string[] $methods
+     * @return PHPUnit_Framework_MockObject_MockObject
+     */
+    private function mockCache(array $methods)
+    {
+        $cacheMock = $this->getModelMockBuilder('core/cache')->setMethods($methods)->getMock();
+        $this->replaceByMock('model', 'core/cache', $cacheMock);
+        $this->app()->initTest();
+        return $cacheMock;
+    }
+
     /**
      * @singleton index/indexer
      */
@@ -45,6 +58,33 @@ class IntegerNet_DevDashboard_Test_Controller_DashboardController extends EcomDe
         $this->assertLayoutBlockRenderedContent('devdashboard', $this->stringContains('modman'));
     }
 
+    /**
+     * @singleton adminhtml/session
+     */
+    public function testFlushCacheAction()
+    {
+        $this->adminSession();
+        $this->mockCache(['flush'])->expects($this->once())->method('flush')->with();
+
+
+        $this->dispatch('adminhtml/devdashboard/flushAll');
+        $this->assertEventDispatchedExactly('adminhtml_cache_flush_all', 1);
+        $this->assertRedirectTo($this->route);
+    }
+
+    /**
+     * @singleton adminhtml/session
+     */
+    public function testFlushSystemAction()
+    {
+        $this->adminSession();
+        $this->mockCache(['clean'])->expects($this->once())->method('clean')->with([]);
+
+        $this->dispatch('adminhtml/devdashboard/flushSystem');
+        $this->assertEventDispatchedExactly('adminhtml_cache_flush_system', 1);
+        $this->assertEventDispatchedExactly('application_clean_cache', 1);
+        $this->assertRedirectTo($this->route);
+    }
     /**
      * Assert that layout block rendered content is evaluated by constraint
      *
