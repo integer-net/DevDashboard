@@ -20,6 +20,7 @@ env:
   - MAGENTO_VERSION=magento-mirror-1.8.1.0
   - MAGENTO_VERSION=magento-mirror-1.7.0.2
 script:
+  - composer install
   - curl -sSL https://raw.githubusercontent.com/schmengler/MageTestStand/master/setup.sh | bash
 addons:
   code_climate:
