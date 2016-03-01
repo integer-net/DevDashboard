@@ -7,13 +7,17 @@ $appliedPatches = $this->getAppliedPatches();
 <ul class="messages">
     <?php if (count($appliedPatches)): ?>
         <li class="success-msg">
-            <?php echo $this->__('Applied:'); ?>
+            <strong><?php echo $this->__('Applied:'); ?></strong>
             <?php echo join(', ', $appliedPatches) ?>
+        </li>
+    <?php else: ?>
+        <li class="warning-msg">
+            <?php echo $this->__('%s not found. It might be that you applied patches but did not deploy this file.', '<strong>app/etc/applied.patches.list</strong>') ?>
         </li>
     <?php endif; ?>
     <?php if (count($requiredPatches)): ?>
         <li class="error-msg">
-            <?php echo $this->__('Missing:'); ?>
+            <strong><?php echo $this->__('Missing:'); ?></strong>
             <?php echo join(', ', $requiredPatches) ?>
         </li>
     <?php endif; ?>
