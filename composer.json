@@ -11,7 +11,8 @@
     ],
     "require": {},
     "require-dev": {
-        "ecomdev/ecomdev_phpunit": "dev-dev"
+        "ecomdev/ecomdev_phpunit": "dev-dev",
+        "mikey179/vfsStream": "~1.3"
     },
     "repositories": [
         {
