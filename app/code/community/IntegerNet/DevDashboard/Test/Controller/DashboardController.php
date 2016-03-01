@@ -64,6 +64,7 @@ class IntegerNet_DevDashboard_Test_Controller_DashboardController extends EcomDe
         $this->assertLayoutRendered();
         $this->assertLayoutBlockRendered('devdashboard');
         $this->assertLayoutBlockRenderedContentNot('devdashboard', $this->stringContains('modman'));
+        $this->assertLayoutBlockRendered('devdashboard_notifications');
         $this->assertLayoutBlockRendered('devdashboard_left');
         $this->assertLayoutBlockRendered('devdashboard_right');
 
@@ -168,6 +169,21 @@ class IntegerNet_DevDashboard_Test_Controller_DashboardController extends EcomDe
             'layout' => 1,
             'translate' => 0,
         ], 'translate');
+    }
+
+    /**
+     * @singleton adminhtml/session
+     */
+    public function testThatStartupActionChangesConfiguration()
+    {
+        $this->setConfig(Mage_Admin_Model_User::XML_PATH_STARTUP_PAGE, 'dashboard');
+        $this->adminSession();
+        $route = 'adminhtml/devdashboard/startup';
+        $this->dispatch($route);
+        $this->assertRequestRoute($route);
+        $this->assertRedirectTo($this->route);
+        $this->app()->initTest();
+        $this->assertEquals('dashboard/dev', Mage::getStoreConfig(Mage_Admin_Model_User::XML_PATH_STARTUP_PAGE));
     }
 
     /**

@@ -1,0 +1,9 @@
+<?php
+/** @var $this IntegerNet_DevDashboard_Block_Notifications */
+?>
+<?php if (! $this->isHomepage()): ?>
+    <div class="notification-global">
+        <?php echo $this->__('The Developer Dashboard is not your admin startup page. To set it up as startup page, <a href="%s">click here</a>.',
+            $this->getUrl('adminhtml/devdashboard/startup')) ?>
+    </div>
+<?php endif; ?>

@@ -71,4 +71,14 @@ class IntegerNet_DevDashboard_Adminhtml_DevdashboardController extends Mage_Admi
         $this->_redirect('*/*');
     }
 
+
+    /**
+     * Set as startup page
+     */
+    public function startupAction()
+    {
+        Mage::getConfig()->saveConfig(Mage_Admin_Model_User::XML_PATH_STARTUP_PAGE, 'dashboard/dev');
+        $this->_getSession()->addSuccess(Mage::helper('integernet_devdashboard')->__('Startup page set'));
+        $this->_redirect('*/*');
+    }
 }
