@@ -20,5 +20,12 @@ $appliedPatches = $this->getAppliedPatches();
             <strong><?php echo $this->__('Missing:'); ?></strong>
             <?php echo join(', ', $requiredPatches) ?>
         </li>
+        <li class="notice-msg">
+            <p><?php echo $this->__('To download patches on the command line, use the following commands and follow the instructions:') ?></p>
+            <pre style="padding: 1px; border: 1px solid #ccc; background-color: #eee; color: #666">export MAGEID=xxx
+export MAGETOKEN=xxx
+curl -k https://$MAGEID:$MAGETOKEN@www.magentocommerce.com/products/downloads/info/help</pre>
+            <p><?php echo $this->__('To obtain <code>$MAGEID</code> and <code>$MAGETOKEN</code>, login to your account on magento.com and generate a token in Account Settings->Downloads Access Token. The MAGEID is shown at the top-left in your account page.') ?></p>
+        </li>
     <?php endif; ?>
 </ul>

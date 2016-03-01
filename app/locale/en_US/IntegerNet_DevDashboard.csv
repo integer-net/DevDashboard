@@ -7,3 +7,5 @@ System Information,System Information
 "The Developer Dashboard is not your admin startup page. To set it up as startup page, <a href=""%s"">click here</a>.","The Developer Dashboard is not your admin startup page. To set it up as startup page, <a href=""%s"">click here</a>."
 Startup page set,Startup page set
 "You can enable developer mode with this line in .htaccess:","You can enable developer mode with this line in .htaccess:"
+"To download patches on the command line, use the following commands and follow the instructions:","To download patches on the command line, use the following commands and follow the instructions:"
+"To obtain <code>$MAGEID</code> and <code>$MAGETOKEN</code>, login to your account on magento.com and generate a token in Account Settings->Downloads Access Token. The MAGEID is shown at the top-left in your account page.","To obtain <code>$MAGEID</code> and <code>$MAGETOKEN</code>, login to your account on magento.com and generate a token in Account Settings->Downloads Access Token. The MAGEID is shown at the top-left in your account page."

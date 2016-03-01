@@ -10,6 +10,14 @@
                 </th>
                 <td><?php echo $this->getDeveloperMode() ? $this->__('On') : $this->__('Off') ?></td>
             </tr>
+            <?php if (! $this->getDeveloperMode()): ?>
+            <tr>
+                <td colspan="2">
+                    <?php echo $this->__('You can enable developer mode with this line in .htaccess:') ?>
+                    <pre style="padding: 1px; border: 1px solid #ccc; background-color: #eee; color: #666">SetEnv MAGE_IS_DEVELOPER_MODE 1</pre>
+                </td>
+            </tr>
+            <?php endif; ?>
         </table>
     </li>
 </ul>
