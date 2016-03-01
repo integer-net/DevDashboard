@@ -6,11 +6,15 @@
     <li class="notice-msg">
         <table>
             <tr>
-                <th><?php echo $this->__('PHP Version')?></th>
+                <th>
+                    <strong><?php echo $this->__('PHP Version')?>:</strong>
+                </th>
                 <td><?php echo $this->escapeHtml($this->getPhpVersion()) ?></td>
             </tr>
             <tr>
-                <th><?php echo $this->__('XDebug enabled')?></th>
+                <th>
+                    <strong><?php echo $this->__('XDebug enabled')?>:</strong>
+                </th>
                 <td><?php echo $this->getXDebugEnabled() ? $this->__('Yes') : $this->__('No') ?></td>
             </tr>
         </table>
