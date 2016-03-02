@@ -20,6 +20,9 @@ The extension adds a developer dashboard that you can choose as your start page 
 - Cache control: View cache status, flush cache
 - Developer settings: View and set current developer settings
 - System information: Display PHP version and other system information
+- Patch information: Display applied and missing security patches (daily updated via http://tools.hypernode.com/)
+
+[![Screenshot](doc/dashboard.png)](doc/dashboard.png)
 
 Requirements
 ------------
@@ -63,5 +66,11 @@ License
 
 Copyright
 ---------
-(c) 2016 integer\_net GmbH
+Copyright (c) 2016 integer\_net GmbH
 [http://www.integer-net.com](http://www.integer-net.com) ([@integer_net](https://twitter.com/integer_net))
+
+---
+
+Used code to check for applied patches from [Philwinkle_AppliedPatches](https://github.com/philwinkle/Philwinkle_AppliedPatches/)
+
+Copyright (c) 2015 Philwinkle LLC / Phillip Jackson ([see source](app/code/community/IntegerNet/DevDashboard/Model/AppliedPatches.php))
