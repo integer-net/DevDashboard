@@ -16,6 +16,10 @@
                     <?php echo $this->__('You can enable developer mode with this line in .htaccess:') ?>
                     <pre style="padding: 1px; border: 1px solid #ccc; background-color: #eee; color: #666">SetEnv MAGE_IS_DEVELOPER_MODE 1</pre>
                 </td>
+                <td colspan="2">
+                    <?php echo $this->__('Or with this line in the nginx configuration if you use php-fpm on nginx:') ?>
+                    <pre style="padding: 1px; border: 1px solid #ccc; background-color: #eee; color: #666">fastcgi_param MAGE_IS_DEVELOPER_MODE = 1;</pre>
+                </td>
             </tr>
             <?php endif; ?>
         </table>
